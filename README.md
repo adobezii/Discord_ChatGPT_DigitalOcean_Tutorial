@@ -6,21 +6,33 @@ Deploying a Discord bot with Flask on DigitalOcean
 
 ## Code Fixed by ChatGPT4
 
+Deploying a Discord bot with Flask on DigitalOcean
+==================================================
+
 This tutorial will guide you through deploying a Discord bot with Flask on DigitalOcean.
 
 Prerequisites
+-------------
 
-A Discord bot with source code.
-A DigitalOcean account.
+1.  A Discord bot with source code.
+2.  A DigitalOcean account.
+
 Step 1: Set up a Flask server
+-----------------------------
 
-Add Flask to your project's requirements.txt file:
+1.  Add Flask to your project's requirements.txt file:
+
 makefile
-Copy code
+
+```makefile
 Flask==2.1.1
-Create a Flask server in your project:
+```
+
+2.  Create a Flask server in your project:
+
 python
-Copy code
+
+```python
 from flask import Flask, jsonify
 import threading
 
@@ -39,25 +51,32 @@ if __name__ == "__main__":
 
     # Start your Discord bot as you normally do
     bot.run_discord_bot()
+```
+
 Step 2: Create a DigitalOcean App
+---------------------------------
 
-Log in to your DigitalOcean account.
-Click on the "Apps" tab on the left sidebar.
-Click on the "Launch Your App" button.
-Choose the repository containing your Discord bot's source code.
-Configure the app's settings:
-Add a discord_bot_token environment variable with your bot's token.
-Set the "Run command" to python main.py (or the appropriate command for your project).
-Set the "HTTP route" to /health.
-Set the "HTTP port" to 8080 (or the appropriate port number you specified in your Flask server code).
-Click on "Launch Basic App" to start the deployment process.
+1.  Log in to your DigitalOcean account.
+2.  Click on the "Apps" tab on the left sidebar.
+3.  Click on the "Launch Your App" button.
+4.  Choose the repository containing your Discord bot's source code.
+5.  Configure the app's settings:
+    1.  Add a `discord_bot_token` environment variable with your bot's token.
+    2.  Set the "Run command" to `python main.py` (or the appropriate command for your project).
+    3.  Set the "HTTP route" to `/health`.
+    4.  Set the "HTTP port" to `8080` (or the appropriate port number you specified in your Flask server code).
+6.  Click on "Launch Basic App" to start the deployment process.
+
 Step 3: Modify the DigitalOcean App specification
+-------------------------------------------------
 
-Once your app is deployed, go to the "Settings" tab of your app in the DigitalOcean dashboard.
-Click on the "Edit App Spec" button.
-Add a health object under the services object in the app spec:
+1.  Once your app is deployed, go to the "Settings" tab of your app in the DigitalOcean dashboard.
+2.  Click on the "Edit App Spec" button.
+3.  Add a `health` object under the `services` object in the app spec:
+
 yaml
-Copy code
+
+```yaml
 services:
 - environment_slug: python
   github:
@@ -71,5 +90,8 @@ services:
   instance_size_slug: basic-xxs
   name: your-app-name
   run_command: python main.py
-Save your changes and redeploy your app.
+```
+
+4.  Save your changes and redeploy your app.
+
 Your Discord bot should now be running with the Flask server handling health checks on DigitalOcean. You can monitor your app's logs and status on the DigitalOcean dashboard.
