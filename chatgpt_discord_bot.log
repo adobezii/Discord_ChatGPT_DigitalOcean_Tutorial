@@ -1,0 +1,5 @@
+[30;1m2023-03-16 20:58:09[0m [31mERROR   [0m [35m__main__[0m -> openai version 0.26.0 is installed but does not match the requirements
+[30;1m2023-03-16 20:58:58[0m [31mERROR   [0m [35m__main__[0m -> openai version 0.27.2 is installed but does not match the requirements
+[30;1m2023-03-16 22:35:51[0m [34;1mINFO    [0m [35msrc.bot[0m -> No Channel selected. Skip sending starting prompt.
+[30;1m2023-03-16 22:35:52[0m [34;1mINFO    [0m [35msrc.bot[0m -> GPT#8060 is now running!
+[30;1m2023-03-16 22:37:09[0m [34;1mINFO    [0m [35msrc.bot[0m -> [31mcloud#1456[0m : /chat [who are you?] in (general)

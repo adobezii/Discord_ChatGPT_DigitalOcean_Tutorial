@@ -1,0 +1,8 @@
+services:
+- name: your-repo
+  github:
+    repo: name/repo
+    branch: main
+    deploy_on_push: true
+  health_check:
+    http_path: /health
